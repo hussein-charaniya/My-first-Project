@@ -97,7 +97,31 @@ namespace My_first_project
                 Console.WriteLine("Test failed.");
             }
 
+
+            //find page and click
+            IWebElement actualCode1 = driver.FindElement(By.XPath("//*[@id='tmsGrid']/div[4]/ul/li[2]/a"));
+            actualCode1.Click();
+
+            // Click on Edit button 
+            IWebElement editButton = driver.FindElement(By.XPath("//*[@id='tmsGrid']/div[3]/table/tbody/tr[9]/td[5]/a[1]"));
+            editButton.Click();
+            //adding time to wait so new page open
+            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
+
+            // Selecting Code field and clearing and adding the new text.
+            IWebElement codeField = driver.FindElement(By.Id("Code"));
+            codeField.Clear();
+            
+            codeField.SendKeys("Hussein23");
+
+            //Click on save button
+            IWebElement saveTab = driver.FindElement(By.Id("SaveButton"));
+            saveTab.Click();
+            
+
+
+
         }
-        
+
     }
 }
